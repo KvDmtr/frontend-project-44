@@ -4,15 +4,17 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/7817f1eeeabcc7658c35/maintainability)](https://codeclimate.com/github/KvDmtr/frontend-project-44/maintainability)
 
-brain-even - https://asciinema.org/a/43SKK1dTWSuhTpyRam6hjQnoi
+### Video example of the game:
 
-brain-calc - https://asciinema.org/a/eIaKReeVtCnbmYG9sOw0Eql1J
+- brain-even - https://asciinema.org/a/43SKK1dTWSuhTpyRam6hjQnoi
 
-brain-gcd - https://asciinema.org/a/1mODLuOBAoffPYuXHTlsCZIzk
+- brain-calc - https://asciinema.org/a/eIaKReeVtCnbmYG9sOw0Eql1J
 
-brain-progression - https://asciinema.org/a/lgjQAjPdhUSYY3SJogzMIinUS
+- brain-gcd - https://asciinema.org/a/1mODLuOBAoffPYuXHTlsCZIzk
 
-brain-prime - https://asciinema.org/a/Qkpvueuv7UxD3RRTdxpDXTbuW
+- brain-progression - https://asciinema.org/a/lgjQAjPdhUSYY3SJogzMIinUS
+
+- brain-prime - https://asciinema.org/a/Qkpvueuv7UxD3RRTdxpDXTbuW
 
 ---
 

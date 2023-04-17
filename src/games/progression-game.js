@@ -1,6 +1,5 @@
 import { getGame, getNumber } from '../index.js';
 
-// Выбирается случайный шаг прогрессии от 1 до 10(включительно)
 function randomStep() {
   const progressionStep = Math.floor(Math.random() * 10 + 1);
   return progressionStep;

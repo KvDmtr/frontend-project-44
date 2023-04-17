@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
 import greetings from './cli.js';
 
-// случайное число в диапазоне от 1 до 100(включительно)
 export function getNumber() {
   const min = 1;
   const max = 100;

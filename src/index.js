@@ -19,7 +19,6 @@ export function getGame(nameGame, rule, question, answer) {
     return console.log(`Congratulations, ${userName}!`);
   }
   console.log(question);
-  //   console.log(answer);
   const userAnswer = readlineSync.question('Your answer: ');
   if (!(userAnswer === answer)) {
     const error = `"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".

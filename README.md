@@ -13,3 +13,23 @@ brain-gcd - https://asciinema.org/a/1mODLuOBAoffPYuXHTlsCZIzk
 brain-progression - https://asciinema.org/a/lgjQAjPdhUSYY3SJogzMIinUS
 
 brain-prime - https://asciinema.org/a/Qkpvueuv7UxD3RRTdxpDXTbuW
+
+---
+
+# Before you start playing write these commands:
+
+1. `git clone git@github.com:KvDmtr/frontend-project-44.git`
+2. `cd frontend-project-44`
+3. `make install`
+4. `npm link`
+
+### To start any game write:
+
+`node 'game name'`
+
+- game names:
+  - brain-even
+  - brain-calc
+  - brain-gcd
+  - brain-progression
+  - brain-prime

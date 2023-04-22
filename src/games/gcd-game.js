@@ -1,34 +1,26 @@
-import { getGame, getNumber } from '../index.js';
+import startGame from '../index.js';
+import { getNumber } from '../utils.js';
 
-function getQuestion() {
-  const num1 = getNumber();
-  const num2 = getNumber();
-  const question = `${num1} ${num2}`;
-  return question;
-}
+const rule = 'Find the greatest common divisor of given numbers.';
 
-function getNOD(x, y) {
+function getGCD(x, y) {
   if (y > x) {
-    return getNOD(y, x);
+    return getGCD(y, x);
   }
   if (!y) {
     return x;
   }
-  return getNOD(y, x % y);
+  return getGCD(y, x % y);
 }
 
-function getAnswer(question) {
-  const numbers = question.split(' ');
-  const num1 = +numbers[0];
-  const num2 = +numbers[1];
-  const answer = getNOD(num1, num2);
-  return answer.toString();
+function getRound() {
+  const num1 = getNumber(1, 100);
+  const num2 = getNumber(1, 100);
+  const expression = `${num1} ${num2}`;
+  const correctAnsw = getGCD(num1, num2).toString();
+  return [expression, correctAnsw];
 }
 
 export default function gcdGame() {
-  const nameGame = gcdGame;
-  const rule = 'Find the greatest common divisor of given numbers.';
-  const question = getQuestion();
-  const answer = getAnswer(question);
-  getGame(nameGame, rule, question, answer);
+  startGame(rule, getRound);
 }

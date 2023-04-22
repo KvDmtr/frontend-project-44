@@ -1,23 +1,23 @@
-import { getGame, getNumber } from '../index.js';
+import startGame from '../index.js';
+import { getNumber } from '../utils.js';
 
-function getAnswer(question) {
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+function isPrime() {
+  const num = getNumber(1, 100);
   let divisor = 0;
-  for (let i = 2; i * 2 <= question; i += 1) {
-    if (question % i === 0) {
+  for (let i = 2; i * 2 <= num; i += 1) {
+    if (num % i === 0) {
       divisor += 1;
     }
   }
-  const condition = !(question % 2 === 0) && !(question === 1) && (divisor === 0);
+  const condition = !(num % 2 === 0) && !(num === 1) && (divisor === 0);
   if (condition) {
-    return 'yes';
+    return [num, 'yes'];
   }
-  return 'no';
+  return [num, 'no'];
 }
 
 export default function primeGame() {
-  const nameGame = primeGame;
-  const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const question = getNumber();
-  const answer = getAnswer(question);
-  getGame(nameGame, rule, question, answer);
+  startGame(rule, isPrime);
 }

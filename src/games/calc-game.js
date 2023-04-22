@@ -1,34 +1,31 @@
-import { getGame, getNumber } from '../index.js';
+import startGame from '../index.js';
+import { getNumber } from '../utils.js';
 
-function mathExpression() {
-  const mathSymb = ['+', '-', '*'];
-  const randSymb = Math.floor(Math.random() * mathSymb.length);
-  const num1 = getNumber();
-  const num2 = getNumber();
-  const expression = `${num1} ${mathSymb[randSymb]} ${num2}`;
-  return expression;
+const rule = 'What is the result of the expression?';
+const mathSymb = ['+', '-', '*'];
+
+function mathExpression(num1, num2, mathSymbol) {
+  switch (mathSymbol) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default:
+      return console.log(`There is no such operator like '${mathSymbol}'!`);
+  }
 }
 
-function getAnswer(question) {
-  const expression = question.split(' ');
-  const num1 = +expression[0];
-  const num2 = +expression[2];
-  if (expression.indexOf('+') !== -1) {
-    const res = num1 + num2;
-    return res.toString();
-  }
-  if (expression.indexOf('-') !== -1) {
-    const res = num1 - num2;
-    return res.toString();
-  }
-  const res = num1 * num2;
-  return res.toString();
+function getExpression() {
+  const num1 = getNumber(1, 100);
+  const num2 = getNumber(1, 100);
+  const randSymb = mathSymb[Math.floor(Math.random() * mathSymb.length)];
+  const expression = `${num1} ${randSymb} ${num2}`;
+  const correctAnsw = mathExpression(num1, num2, randSymb).toString();
+  return [expression, correctAnsw];
 }
 
 export default function calcGame() {
-  const nameGame = calcGame;
-  const rule = 'What is the result of the expression?';
-  const question = mathExpression();
-  const answer = getAnswer(question);
-  getGame(nameGame, rule, question, answer);
+  startGame(rule, getExpression);
 }

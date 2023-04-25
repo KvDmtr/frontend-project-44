@@ -1,23 +1,23 @@
 import startGame from '../index.js';
-import { getNumber } from '../utils.js';
+import getNumber from '../utils.js';
 
 const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function isEven(num) {
   const condition = num % 2 === 0;
   if (condition) {
-    return 'yes';
+    return true;
   }
-  return 'no';
+  return false;
 }
 
-function getQA() {
+function generateRound() {
   const randNum = getNumber();
-  const numToString = randNum.toString();
-  const corretAnsw = isEven(randNum);
-  return [numToString, corretAnsw];
+  const question = randNum.toString();
+  const corretAnsw = isEven(randNum) ? 'yes' : 'no';
+  return [question, corretAnsw];
 }
 
 export default function evenGame() {
-  startGame(rule, getQA);
+  startGame(rule, generateRound);
 }

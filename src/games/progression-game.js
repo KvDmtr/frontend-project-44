@@ -1,29 +1,22 @@
 import startGame from '../index.js';
-import { getNumber } from '../utils.js';
+import getNumber from '../utils.js';
 
 const rule = 'What number is missing in the progression?';
 
-function randomStep() {
-  const progressionStep = Math.floor(Math.random() * 10 + 1);
-  return progressionStep;
-}
-
-function getProgressionLength() {
-  const minLength = 5;
-  const maxLength = 10;
-  const progressionLength = minLength + Math.random() * (maxLength + 1 - minLength);
-  return Math.floor(progressionLength);
-}
-
-function getProgression() {
+function getProgression(startValue, progressStep, progressLength) {
   const progression = [];
-  const progressionLength = getProgressionLength();
-  const progressStep = randomStep();
-  const startValue = Math.floor(getNumber(1, 100) / 2);
-  for (let number = startValue; progression.length < progressionLength; number += progressStep) {
+  for (let number = startValue; progression.length < progressLength; number += progressStep) {
     progression.push(number);
   }
-  const hideRandom = Math.floor(Math.random() * progression.length);
+  return progression;
+}
+
+function generateRound() {
+  const startValue = getNumber(1, 100);
+  const progressionStep = getNumber(1, 10);
+  const progressionLength = getNumber(5, 10);
+  const progression = getProgression(startValue, progressionStep, progressionLength);
+  const hideRandom = getNumber(0, progression.length - 1);
   const correctAnsw = progression[hideRandom].toString();
   progression[hideRandom] = '..';
   const hideProgression = progression.join(' ');
@@ -31,5 +24,5 @@ function getProgression() {
 }
 
 export default function progressionGame() {
-  startGame(rule, getProgression);
+  startGame(rule, generateRound);
 }

@@ -3,13 +3,7 @@ import getNumber from '../utils.js';
 
 const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function isEven(num) {
-  const condition = num % 2 === 0;
-  if (condition) {
-    return true;
-  }
-  return false;
-}
+const isEven = (num) => num % 2 === 0;
 
 function generateRound() {
   const randNum = getNumber();
@@ -18,6 +12,6 @@ function generateRound() {
   return [question, corretAnsw];
 }
 
-export default function evenGame() {
+export default () => {
   startGame(rule, generateRound);
-}
+};

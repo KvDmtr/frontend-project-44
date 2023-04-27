@@ -2,10 +2,11 @@ import startGame from '../index.js';
 import getNumber from '../utils.js';
 
 const rule = 'What number is missing in the progression?';
+const progressLength = getNumber(5, 10);
 
-function getProgression(startValue, progressStep, progressLength) {
+function getProgression(start, step, length) {
   const progression = [];
-  for (let number = startValue; progression.length < progressLength; number += progressStep) {
+  for (let number = start; progression.length < length; number += step) {
     progression.push(number);
   }
   return progression;
@@ -13,9 +14,8 @@ function getProgression(startValue, progressStep, progressLength) {
 
 function generateRound() {
   const startValue = getNumber(1, 100);
-  const progressionStep = getNumber(1, 10);
-  const progressionLength = getNumber(5, 10);
-  const progression = getProgression(startValue, progressionStep, progressionLength);
+  const progressStep = getNumber(1, 10);
+  const progression = getProgression(startValue, progressStep, progressLength);
   const hideRandom = getNumber(0, progression.length - 1);
   const correctAnsw = progression[hideRandom].toString();
   progression[hideRandom] = '..';
@@ -23,6 +23,6 @@ function generateRound() {
   return [hideProgression, correctAnsw];
 }
 
-export default function progressionGame() {
+export default () => {
   startGame(rule, generateRound);
-}
+};

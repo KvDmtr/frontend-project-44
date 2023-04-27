@@ -21,6 +21,6 @@ function getRound() {
   return [question, correctAnsw];
 }
 
-export default function gcdGame() {
+export default () => {
   startGame(rule, getRound);
-}
+};

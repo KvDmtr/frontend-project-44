@@ -4,8 +4,8 @@ import getNumber from '../utils.js';
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
-  if (num === 0 || num === 1) return false;
-  for (let i = 2; i * 2 <= num; i += 1) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
       return false;
     }
@@ -19,6 +19,6 @@ function getRound() {
   return [num, correctAnswer];
 }
 
-export default function primeGame() {
+export default () => {
   startGame(rule, getRound);
-}
+};

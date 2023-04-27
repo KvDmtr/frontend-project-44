@@ -13,7 +13,7 @@ function mathExpression(num1, num2, mathSymbol) {
     case '*':
       return num1 * num2;
     default:
-      return console.log(`There is no such operator like '${mathSymbol}'!`);
+      throw new Error(`There is no such operator like '${mathSymbol}'!`);
   }
 }
 
@@ -26,6 +26,6 @@ function generateRound() {
   return [expression, correctAnsw];
 }
 
-export default function calcGame() {
+export default () => {
   startGame(rule, generateRound);
-}
+};
